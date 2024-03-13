@@ -7,6 +7,7 @@ import AllTasks from "./components/AllTasks";
 import AddTasks from "./components/AddTasks";
 import Home from "./components/Home";
 import EditTask from "./components/EditTask";
+import DeleteTask from "./components/DeleteTask";
 
 export default function App() {
   const [isLoggedIn, setLoggedIn] = useState(false);
@@ -24,6 +25,7 @@ export default function App() {
         <Route path="/getAllTasks" element={<AllTasks />} />
         <Route path="/addTasks" element={<AddTasks />} />
         <Route path="/editTask/:id" element={<EditTask />} />
+        <Route path="/deleteTask/:id" element={<DeleteTask />} />
 
       </Routes>
     </div>
