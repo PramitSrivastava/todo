@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Login from "./components/Login";
 import Navbar from "./components/Navbar";
@@ -6,17 +6,25 @@ import Signup from "./components/Signup";
 import AllTasks from "./components/AllTasks";
 import AddTasks from "./components/AddTasks";
 import Home from "./components/Home";
+import EditTask from "./components/EditTask";
 
 export default function App() {
+  const [isLoggedIn, setLoggedIn] = useState(false);
+
   return (
     <div>
-      <Navbar />
+      <Navbar isLoggedIn={isLoggedIn} /> 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
+        <Route
+          path="/login"
+          element={<Login setLoggedIn={setLoggedIn} />} 
+        />
         <Route path="/register" element={<Signup />} />
         <Route path="/getAllTasks" element={<AllTasks />} />
         <Route path="/addTasks" element={<AddTasks />} />
+        <Route path="/editTask/:id" element={<EditTask />} />
+
       </Routes>
     </div>
   );

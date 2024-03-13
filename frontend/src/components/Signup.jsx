@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 const Signup = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -24,13 +25,14 @@ const Signup = () => {
       if (!response.ok) {
         throw new Error("Failed to sign up");
       }
-        setFormData({
+
+      setFormData({
         name: "",
         email: "",
         password: "",
       });
 
-      // Handle successful signup, such as redirecting to login page
+      window.location.href = "/login";
     } catch (error) {
       console.error("Signup Error:", error);
       // Handle error, such as displaying error message to user
@@ -49,7 +51,7 @@ const Signup = () => {
             value={formData.name}
             onChange={handleChange}
             placeholder="Your name"
-            className="border bg-gray-800"
+            className="border "
           />
         </div>
         <div className=" flex flex-col   mb-5">
@@ -60,7 +62,7 @@ const Signup = () => {
             value={formData.email}
             onChange={handleChange}
             placeholder="Your email"
-            className="border bg-gray-800"
+            className="border "
           />
         </div>
         <div className=" flex flex-col mb-5">
@@ -71,7 +73,7 @@ const Signup = () => {
             value={formData.password}
             onChange={handleChange}
             placeholder="Your password"
-            className="border bg-gray-800"
+            className="border "
           />
         </div>
         <div>
